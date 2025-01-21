@@ -1,9 +1,13 @@
-import Navbar from "./components/NavBar";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 
 export default function App() {
   return (
     <div>
-      <Navbar/>
+      <div className="p-5 md:px-[15]">
+        <Navbar />
+        <Home/>
+      </div>
     </div>
   )
 }
