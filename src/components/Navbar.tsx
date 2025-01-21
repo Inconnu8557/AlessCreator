@@ -1,7 +1,9 @@
 const Navbar = () => {
     return (
         <div>
-            test
+            <a href="#">
+                    
+            </a>
         </div>
     )
 }
