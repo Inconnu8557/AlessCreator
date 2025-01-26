@@ -64,7 +64,7 @@ const Experiences = () => {
     return (
         <div>
             <Title title="Expériences" />
-            <div>
+            <div className="flex flex-col-reverse md:flex-row justify-center items-center">
                 <div className="flex flex-wrap gap-4 justify-center items-center md:w-1/3 mt-4 md:mt-0">
                     {skills.map((skill) => (
                         <div key={skill.id} className="flex justify-center items-center flex-col">
@@ -79,25 +79,27 @@ const Experiences = () => {
                 </div>
                 <div className="md:ml-4 flex flex-col space-y-4">
                     {experiences.map((experience) => (
-                        <div key={experience.id}>
+                        <div key={experience.id}
+                            className="flex flex-col bg-base-200 p-5 rounded-xl shadow-lg"
+                        >
                             <div className="flex items-center">
                                 <img
                                     src={experience.image}
                                     alt={experience.company}
                                     className="object-cover h-10 w-10"
-                                    />
-                                    <div className="ml-4">
-                                        <h1 className="text-xl text-accent font-bold">
-                                            {experience.role} , {experience.company}
-                                        </h1>
-                                        <span className="text-sm">{experience.period}</span>
-                                    </div>
+                                />
+                                <div className="ml-4">
+                                    <h1 className="text-xl text-accent font-bold">
+                                        {experience.role} , {experience.company}
+                                    </h1>
+                                    <span className="text-sm">{experience.period}</span>
+                                </div>
                             </div>
-                            <ul>
+                            <ul className="list-disc ml-16 mt-2">
                                 {experience.description.map((desc, index) => (
-                                    <div key={index}>
-                                        <li>{desc}</li>
-                                    </div>
+                                    <li key={index}>
+                                        {desc}
+                                    </li>
                                 ))}
                             </ul>
                         </div>
