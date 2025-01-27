@@ -1,6 +1,6 @@
 import Title from "./Title";
 import img from "../assets/img.jpg";
-import { CalendarSync, LetterText, Paintbrush, Section } from "lucide-react";
+import { CalendarSync, LetterText, Paintbrush } from "lucide-react";
 
 const aboutSections = [
     {
@@ -24,7 +24,7 @@ const aboutSections = [
 ];
 const About = () => {
     return (
-        <div className="bg-base-300 p-10 mb-10 md:mb-32">
+        <div className="bg-base-300 p-10 mb-10 md:mb-32" id="About">
             <Title title="A propos" />
             <div className="md:h-screen flex justify-center items-center">
                 <div className="hidden md:block">

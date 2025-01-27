@@ -67,7 +67,7 @@ const projects = [
 
 const Projects = () => {
     return (
-        <div className="mt-10">
+        <div className="mt-10" id="Projects">
             <Title title="Mes Projets" />
             <div className="grid md:grid-cols-3 gap-4">
                 {projects.map((project) => (
@@ -75,13 +75,26 @@ const Projects = () => {
                         <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full rounded-xl h-56 object-cover" 
-                            />
+                            className="w-full rounded-xl h-56 object-cover"
+                        />
                         <div>
                             <h1 className="my-2 font-bold">
                                 {project.title}
                             </h1>
-                            <p>{project.description}</p>
+                            <p className="text-sm">{project.description}</p>
+                        </div>
+                        <div className="flex flex-wrap gap-2 my-3">
+                            {project.technologies.map((tech) => (
+                                <span className="badge badge-accent badge-sm">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                        <div className="flex">
+                            <a className="btn btn-accent w-2/3" href={project.demoLink}>
+                            <Video className="w-4"/></a>
+                            <a className="btn btn-neutral w-1/3 ml-2" href={project.repoLink}>
+                            <Github className="w-4"/></a>
                         </div>
                     </div>
                 ))
