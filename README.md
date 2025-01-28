@@ -1,50 +1,66 @@
-# React + TypeScript + Vite
+# Portfolio Personnalisable
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ce projet est un modèle de portfolio personnalisable développé avec React, TypeScript et Tailwind CSS. Il permet de présenter vos compétences, expériences, projets et de fournir un moyen de contact.
 
-Currently, two official plugins are available:
+## Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Page d'accueil** : Présentez-vous avec une image et une brève description.
+- **À propos** : Décrivez vos compétences et votre passion pour le développement.
+- **Expériences** : Listez vos expériences professionnelles avec des détails sur vos rôles et responsabilités.
+- **Projets** : Montrez vos projets avec des descriptions, technologies utilisées, et liens vers les démos et les dépôts.
+- **Contact** : Fournissez des liens vers vos réseaux sociaux et un moyen de vous contacter.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clonez le dépôt :
+    ```sh
+    git clone https://github.com/votre-utilisateur/portfolio-personnalisable.git
+    cd portfolio-personnalisable
+    ```
 
-- Configure the top-level `parserOptions` property like this:
+2. Installez les dépendances :
+    ```sh
+    npm install
+    ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+3. Lancez le serveur de développement :
+    ```sh
+    npm run dev
+    ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+4. Ouvrez votre navigateur et accédez à `http://localhost:3000`.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Personnalisation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Modifier les informations personnelles
+
+Les informations personnelles et les sections du portfolio peuvent être modifiées dans les fichiers de composants situés dans le dossier [components](http://_vscodecontentref_/0).
+
+- **Page d'accueil** : Modifiez [Home.tsx](http://_vscodecontentref_/1).
+- **À propos** : Modifiez [About.tsx](http://_vscodecontentref_/2).
+- **Expériences** : Modifiez [Experiences.tsx](http://_vscodecontentref_/3).
+- **Projets** : Modifiez [Projects.tsx](http://_vscodecontentref_/4).
+- **Navbar et Footer** : Modifiez [Navbar.tsx](http://_vscodecontentref_/5) et [Footer.tsx](http://_vscodecontentref_/6).
+
+### Modifier les styles
+
+Les styles sont gérés par Tailwind CSS et peuvent être modifiés dans le fichier [index.css](http://_vscodecontentref_/7) et le fichier de configuration [tailwind.config.js](http://_vscodecontentref_/8).
+
+## Déploiement
+
+Pour déployer votre portfolio, vous pouvez utiliser des services comme Vercel, Netlify ou GitHub Pages.
+
+1. Construisez le projet :
+    ```sh
+    npm run build
+    ```
+
+2. Déployez le contenu du dossier [dist](http://_vscodecontentref_/9) généré par la commande précédente sur votre service de déploiement préféré.
+
+## Contribuer
+
+Les contributions sont les bienvenues ! Si vous avez des idées d'améliorations ou des bugs à signaler, n'hésitez pas à ouvrir une issue ou à soumettre une pull request.
+
+## Licence
+
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
