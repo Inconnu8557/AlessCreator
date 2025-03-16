@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Download } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Github, Linkedin, Download, ExternalLink, Code, Briefcase } from "lucide-react";
 import Logo from '../assets/Logo.png';
 import { useState, useEffect } from "react";
 
@@ -8,19 +8,36 @@ const socialLinks = [
         id: 1,
         icon: <Github className="w-5 h-5" />,
         href: "https://github.com/yourusername",
-        label: "GitHub"
+        label: "GitHub",
+        color: "hover:bg-[#333333]"
     },
     {
         id: 2,
         icon: <Linkedin className="w-5 h-5" />,
         href: "https://linkedin.com/in/yourusername",
-        label: "LinkedIn"
+        label: "LinkedIn",
+        color: "hover:bg-[#0077B5]"
     },
+    {
+        id: 3,
+        icon: <Briefcase className="w-5 h-5" />,
+        href: "#projects",
+        label: "Projets",
+        color: "hover:bg-accent"
+    },
+    {
+        id: 4,
+        icon: <Code className="w-5 h-5" />,
+        href: "#skills",
+        label: "Compétences",
+        color: "hover:bg-accent"
+    }
 ];
 
 const Home = () => {
     const [displayText, setDisplayText] = useState("AlessCreator");
     const texts = ["AlessCreator", "UX Designer", "Passionné"];
+    const [isHovered, setIsHovered] = useState<number | null>(null);
     
     useEffect(() => {
         let currentIndex = 0;
@@ -32,9 +49,34 @@ const Home = () => {
         return () => clearInterval(interval);
     }, []);
 
+    const containerVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1
+        }
+    };
+
     return (
-        <div id="Home" className="flex items-center justify-center min-h-screen px-6 py-20 md:px-10 bg-gradient-to-b from-base-200 to-base-100">
-            <div className="flex flex-col-reverse items-center justify-between gap-12 mx-auto max-w-7xl md:flex-row">
+        <div id="Home" className="relative flex items-center justify-center min-h-screen px-6 py-20 overflow-hidden md:px-10">
+            <div className="absolute inset-0 bg-gradient-to-b from-base-200 to-base-100">
+                <div className="absolute inset-0 opacity-30">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+                </div>
+            </div>
+            <div className="relative z-10 flex flex-col-reverse items-center justify-between gap-12 mx-auto max-w-7xl md:flex-row">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -47,7 +89,7 @@ const Home = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="mb-4 font-medium text-accent"
                     >
-                        Développeur Full Stack
+                        Développeur Full Stack & UX Designer
                     </motion.span>
                     
                     <motion.h1
@@ -57,25 +99,50 @@ const Home = () => {
                         className="mb-6 text-4xl font-bold leading-tight md:text-6xl"
                     >
                         Bonjour, je suis{" "}
-                        <motion.span
-                            key={displayText}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            className="text-accent"
-                        >
-                            {displayText}
-                        </motion.span>
+                        <AnimatePresence mode="wait">
+                            <motion.span
+                                key={displayText}
+                                initial={{ 
+                                    opacity: 0,
+                                    y: 50,
+                                    rotateX: -90,
+                                }}
+                                animate={{ 
+                                    opacity: 1,
+                                    y: 0,
+                                    rotateX: 0,
+                                    transition: {
+                                        type: "spring",
+                                        stiffness: 50,
+                                        damping: 15,
+                                        duration: 1
+                                    }
+                                }}
+                                exit={{ 
+                                    opacity: 0,
+                                    y: -50,
+                                    rotateX: 90,
+                                    transition: {
+                                        duration: 0.5,
+                                        ease: "easeInOut"
+                                    }
+                                }}
+                                className="inline-block text-accent"
+                                style={{ transformOrigin: "50% 50%" }}
+                            >
+                                {displayText}
+                            </motion.span>
+                        </AnimatePresence>
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="mb-8 text-lg text-base-content/70"
+                        className="mb-8 text-lg leading-relaxed text-base-content/70"
                     >
-                        Développeur passionné avec 2 ans d'expérience dans la création d'applications web modernes.
-                        Spécialisé en React, Node.js et TypeScript, je transforme vos idées en solutions digitales innovantes.
+                        Passionné par la création d'expériences numériques exceptionnelles, je combine expertise technique et design centré utilisateur. 
+                        Spécialisé en React, Node.js et TypeScript, je transforme des concepts créatifs en solutions digitales innovantes et performantes.
                     </motion.p>
 
                     <motion.div
@@ -86,7 +153,7 @@ const Home = () => {
                     >
                         <motion.a
                             href="mailto:contact@lucdev.fr"
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.05, backgroundColor: "var(--accent-focus)" }}
                             whileTap={{ scale: 0.95 }}
                             className="btn btn-accent"
                         >
@@ -97,9 +164,9 @@ const Home = () => {
                         <motion.a
                             href="/cv.pdf"
                             download
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.05, backgroundColor: "var(--accent-content)" }}
                             whileTap={{ scale: 0.95 }}
-                            className="btn btn-outline"
+                            className="btn btn-outline hover:text-white"
                         >
                             <Download className="w-5 h-5 mr-2" />
                             Télécharger CV
@@ -107,24 +174,43 @@ const Home = () => {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
-                        className="flex gap-4 mt-8"
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="flex items-center gap-4 mt-8"
                     >
                         {socialLinks.map((link, index) => (
-                            <motion.a
+                            <motion.div
                                 key={link.id}
-                                href={link.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{ scale: 1.1, y: -5 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="p-3 transition-colors rounded-full bg-base-200 hover:bg-accent hover:text-white"
-                                aria-label={link.label}
+                                variants={itemVariants}
+                                onHoverStart={() => setIsHovered(index)}
+                                onHoverEnd={() => setIsHovered(null)}
+                                className="relative"
                             >
-                                {link.icon}
-                            </motion.a>
+                                <motion.a
+                                    href={link.href}
+                                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                    whileHover={{ scale: 1.1, y: -5 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    className={`p-3 transition-colors rounded-full bg-base-200 ${link.color} hover:text-white flex items-center justify-center`}
+                                    aria-label={link.label}
+                                >
+                                    {link.icon}
+                                </motion.a>
+                                <AnimatePresence>
+                                    {isHovered === index && (
+                                        <motion.span
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: 10 }}
+                                            className="absolute px-2 py-1 text-sm transform -translate-x-1/2 rounded -bottom-8 left-1/2 bg-base-300 whitespace-nowrap"
+                                        >
+                                            {link.label}
+                                        </motion.span>
+                                    )}
+                                </AnimatePresence>
+                            </motion.div>
                         ))}
                     </motion.div>
                 </motion.div>
@@ -140,7 +226,18 @@ const Home = () => {
                     }}
                     className="relative"
                 >
-                    <div className="absolute inset-0 rounded-full bg-accent/20 blur-3xl" />
+                    <motion.div 
+                        className="absolute inset-0 rounded-full bg-accent/20 blur-3xl"
+                        animate={{
+                            scale: [1, 1.2, 1],
+                            opacity: [0.2, 0.3, 0.2]
+                        }}
+                        transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    />
                     <motion.img
                         src={Logo}
                         alt="AlessDEV"
@@ -150,6 +247,7 @@ const Home = () => {
                         }}
                         whileHover={{
                             borderRadius: "60% 40% 30% 70% / 47% 62% 38% 53%",
+                            scale: 1.05,
                             transition: { duration: 0.3 }
                         }}
                     />
