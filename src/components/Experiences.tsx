@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Title from "./Title";
 import imgCSS from "../assets/techno/css.png";
 import imgJS from "../assets/techno/js.png";
@@ -8,105 +9,148 @@ import imgNODE from "../assets/techno/node-js.png";
 import imgTYPE from "../assets/techno/typescript.svg";
 import imgTAILWIND from "../assets/techno/tailwind.png";
 import imgPRISMA from "../assets/techno/prisma.webp";
+import { Calendar, Building2, GraduationCap } from "lucide-react";
 
 import google from "../assets/companies/google.png";
 import meta from "../assets/companies/meta.webp";
 import amazon from "../assets/companies/amazon.png";
 
 const skills = [
-    { id: 1, name: "HTML", image: imgHTML },
-    { id: 2, name: "CSS", image: imgCSS },
-    { id: 3, name: "JavaScript", image: imgJS },
-    { id: 4, name: "React", image: imgREACT },
-    { id: 5, name: "Node.js", image: imgNODE },
-    { id: 6, name: "Tailwind CSS", image: imgTAILWIND },
-    { id: 7, name: "TypeScript", image: imgTYPE },
-    { id: 8, name: "Next.js", image: imgNEXT },
-    { id: 9, name: "Prisma", image: imgPRISMA },
+    { id: 1, name: "HTML", image: imgHTML, level: 90 },
+    { id: 2, name: "CSS", image: imgCSS, level: 85 },
+    { id: 3, name: "JavaScript", image: imgJS, level: 88 },
+    { id: 4, name: "React", image: imgREACT, level: 85 },
+    { id: 5, name: "Node.js", image: imgNODE, level: 80 },
+    { id: 6, name: "Tailwind CSS", image: imgTAILWIND, level: 90 },
+    { id: 7, name: "TypeScript", image: imgTYPE, level: 82 },
+    { id: 8, name: "Next.js", image: imgNEXT, level: 78 },
+    { id: 9, name: "Prisma", image: imgPRISMA, level: 75 },
 ];
+
 const experiences = [
     {
         id: 1,
-        role: "Software Engineer",
-        company: "Google",
-        period: "Sep 2022 - Présent",
-        description: [
-            "Développement de nouvelles fonctionnalités pour Google Maps.",
-            "Optimisation des performances de l'application.",
-        ],
-        image: google,
+        title: "Développeur Full Stack",
+        company: "Entreprise A",
+        period: "2022 - Présent",
+        description: "Développement d'applications web modernes avec React et Node.js",
+        icon: <Building2 className="w-6 h-6" />,
     },
     {
         id: 2,
-        role: "Fullstack Developer",
-        company: "Meta",
-        period: "Jan 2021 - Août 2022",
-        description: [
-            "Création d'une plateforme interne de collaboration pour les équipes.",
-            "Mise en place d'une architecture scalable et optimisée.",
-        ],
-        image: meta,
+        title: "Développeur Frontend",
+        company: "Entreprise B",
+        period: "2020 - 2022",
+        description: "Création d'interfaces utilisateur réactives et optimisation des performances",
+        icon: <Calendar className="w-6 h-6" />,
     },
     {
         id: 3,
-        role: "Frontend Developer",
-        company: "Amazon",
-        period: "Mai 2019 - Déc 2020",
-        description: [
-            "Développement d'une interface utilisateur pour Amazon Web Services.",
-            "Implémentation des tests unitaires et E2E.",
-        ],
-        image: amazon,
+        title: "Formation Développeur Web",
+        company: "École C",
+        period: "2019 - 2020",
+        description: "Formation intensive en développement web full stack",
+        icon: <GraduationCap className="w-6 h-6" />,
     },
 ];
 
 const Experiences = () => {
     return (
-        <div id="Experiences">
-            <Title title="Expériences" />
-            <div className="flex flex-col-reverse md:flex-row justify-center items-center">
-                <div className="flex flex-wrap gap-4 justify-center items-center md:w-1/3 mt-4 md:mt-0">
-                    {skills.map((skill) => (
-                        <div key={skill.id} className="flex justify-center items-center flex-col">
-                            <div className="w-24 h-24 p-2 rounded-full border-2 border-accent">
-                                <img src={skill.image} alt={skill.name}
-                                    className="object-cover rounded-full h-full w-full"
-                                />
-                            </div>
-                            <span className="mt-2 text-sm">{skill.name}</span>
+        <div id="Experiences" className="px-6 py-20 md:px-10 bg-base-200">
+            <div className="mx-auto max-w-7xl">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="mb-16"
+                >
+                    <Title title="Expériences & Compétences" />
+                </motion.div>
+
+                <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+                    {/* Expériences */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                        className="space-y-6"
+                    >
+                        <h3 className="mb-8 text-2xl font-bold">Parcours professionnel</h3>
+                        <div className="relative space-y-8">
+                            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-accent/30" />
+                            {experiences.map((exp, index) => (
+                                <motion.div
+                                    key={exp.id}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className="relative pl-16"
+                                >
+                                    <div className="absolute left-0 p-2 border-2 rounded-full bg-base-100 border-accent">
+                                        {exp.icon}
+                                    </div>
+                                    <div className="p-6 rounded-lg shadow-lg bg-base-100">
+                                        <span className="text-sm text-accent">{exp.period}</span>
+                                        <h4 className="mt-1 text-lg font-bold">{exp.title}</h4>
+                                        <p className="mt-1 text-sm text-base-content/70">{exp.company}</p>
+                                        <p className="mt-2">{exp.description}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-                <div className="md:ml-4 flex flex-col space-y-4">
-                    {experiences.map((experience) => (
-                        <div key={experience.id}
-                            className="flex flex-col bg-base-200 p-5 rounded-xl shadow-lg"
-                        >
-                            <div className="flex items-center">
-                                <img
-                                    src={experience.image}
-                                    alt={experience.company}
-                                    className="object-cover h-10 w-10"
-                                />
-                                <div className="ml-4">
-                                    <h1 className="text-xl text-accent font-bold">
-                                        {experience.role} , {experience.company}
-                                    </h1>
-                                    <span className="text-sm">{experience.period}</span>
-                                </div>
-                            </div>
-                            <ul className="list-disc ml-16 mt-2">
-                                {experience.description.map((desc, index) => (
-                                    <li key={index}>
-                                        {desc}
-                                    </li>
-                                ))}
-                            </ul>
+                    </motion.div>
+
+                    {/* Compétences */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                        className="space-y-6"
+                    >
+                        <h3 className="mb-8 text-2xl font-bold">Compétences techniques</h3>
+                        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3">
+                            {skills.map((skill, index) => (
+                                <motion.div
+                                    key={skill.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className="flex flex-col items-center"
+                                >
+                                    <motion.div
+                                        className="w-20 h-20 p-4 shadow-lg rounded-xl bg-base-100"
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                                    >
+                                        <img
+                                            src={skill.image}
+                                            alt={skill.name}
+                                            className="object-contain w-full h-full"
+                                        />
+                                    </motion.div>
+                                    <h4 className="mt-3 font-medium text-center">{skill.name}</h4>
+                                    <div className="w-full h-2 mt-2 rounded-full bg-base-300">
+                                        <motion.div
+                                            className="h-full rounded-full bg-accent"
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: `${skill.level}%` }}
+                                            transition={{ duration: 1, delay: index * 0.1 }}
+                                            viewport={{ once: true }}
+                                        />
+                                    </div>
+                                </motion.div>
+                            ))}
                         </div>
-                    ))}
+                    </motion.div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
 export default Experiences;
