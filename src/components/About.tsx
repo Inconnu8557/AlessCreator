@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Title from "./Title";
-import img from "../assets/img.jpg";
+import img from '../assets/Logo.png';
 import { CalendarSync, LetterText, Paintbrush } from "lucide-react";
 
 const aboutSections = [
