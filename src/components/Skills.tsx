@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import imgCSS from "../assets/techno/css.png";
 import imgJS from "../assets/techno/js.png";

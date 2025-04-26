@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Container, Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { Container, Github, Linkedin, Mail } from "lucide-react";
 
 const socialLinks = [
     {
@@ -23,9 +23,6 @@ const socialLinks = [
 ];
 
 const Footer = () => {
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
 
     return (
         <footer className="pt-20 pb-10 bg-base-200">
@@ -56,7 +53,7 @@ const Footer = () => {
                         viewport={{ once: true }}
                         className="flex gap-6 mb-12"
                     >
-                        {socialLinks.map((link, index) => (
+                        {socialLinks.map((link) => (
                             <motion.a
                                 key={link.id}
                                 href={link.href}
