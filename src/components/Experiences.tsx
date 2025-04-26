@@ -1,35 +1,15 @@
 import { motion } from "framer-motion";
 import Title from "./Title";
-import { Calendar, Building2, GraduationCap } from "lucide-react";
-
-import google from "../assets/companies/google.png";
-import meta from "../assets/companies/meta.webp";
-import amazon from "../assets/companies/amazon.png";
+import {  Building2 } from "lucide-react";
 
 const experiences = [
     {
         id: 1,
-        title: "Développeur Full Stack",
-        company: "Entreprise A",
-        period: "2022 - Présent",
-        description: "Développement d'applications web modernes avec React et Node.js",
+        title: "Tumo",
+        company: "Tumo Lyon",
+        period: "2022",
+        description: "Apprentissage des bases de la programmation et du javascript",
         icon: <Building2 className="w-6 h-6" />,
-    },
-    {
-        id: 2,
-        title: "Développeur Frontend",
-        company: "Entreprise B",
-        period: "2020 - 2022",
-        description: "Création d'interfaces utilisateur réactives et optimisation des performances",
-        icon: <Calendar className="w-6 h-6" />,
-    },
-    {
-        id: 3,
-        title: "Formation Développeur Web",
-        company: "École C",
-        period: "2019 - 2020",
-        description: "Formation intensive en développement web full stack",
-        icon: <GraduationCap className="w-6 h-6" />,
     },
 ];
 

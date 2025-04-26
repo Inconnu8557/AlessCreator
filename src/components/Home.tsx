@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Github, Linkedin, Download, ExternalLink, Code, Briefcase } from "lucide-react";
+import { Mail, Github, Briefcase, Code } from "lucide-react";
 import Logo from '../assets/Logo.png';
 import { useState, useEffect } from "react";
 
@@ -7,16 +7,9 @@ const socialLinks = [
     {
         id: 1,
         icon: <Github className="w-5 h-5" />,
-        href: "https://github.com/yourusername",
+        href: "https://github.com/Inconnu8557",
         label: "GitHub",
         color: "hover:bg-[#333333]"
-    },
-    {
-        id: 2,
-        icon: <Linkedin className="w-5 h-5" />,
-        href: "https://linkedin.com/in/yourusername",
-        label: "LinkedIn",
-        color: "hover:bg-[#0077B5]"
     },
     {
         id: 3,
@@ -152,24 +145,13 @@ const Home = () => {
                         className="flex flex-wrap gap-4"
                     >
                         <motion.a
-                            href="mailto:contact@lucdev.fr"
+                            href="mailto:mlalessandro@icloud.com"
                             whileHover={{ scale: 1.05, backgroundColor: "var(--accent-focus)" }}
                             whileTap={{ scale: 0.95 }}
                             className="btn btn-accent"
                         >
                             <Mail className="w-5 h-5 mr-2" />
                             Me contacter
-                        </motion.a>
-                        
-                        <motion.a
-                            href="/cv.pdf"
-                            download
-                            whileHover={{ scale: 1.05, backgroundColor: "var(--accent-content)" }}
-                            whileTap={{ scale: 0.95 }}
-                            className="btn btn-outline hover:text-white"
-                        >
-                            <Download className="w-5 h-5 mr-2" />
-                            Télécharger CV
                         </motion.a>
                     </motion.div>
 

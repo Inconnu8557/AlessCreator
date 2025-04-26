@@ -31,15 +31,6 @@ const Footer = () => {
         <footer className="pt-20 pb-10 bg-base-200">
             <div className="px-6 mx-auto max-w-7xl md:px-10">
                 <div className="flex flex-col items-center">
-                    <motion.button
-                        onClick={scrollToTop}
-                        className="p-3 mb-12 text-white transition-colors rounded-full bg-accent hover:bg-accent-focus"
-                        whileHover={{ y: -5 }}
-                        whileTap={{ scale: 0.9 }}
-                        aria-label="Retour en haut"
-                    >
-                        <ArrowUp className="w-6 h-6" />
-                    </motion.button>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
