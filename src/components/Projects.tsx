@@ -12,11 +12,11 @@ import { motion, AnimatePresence } from "framer-motion";
 const projects = [
     {
         id: 1,
-        title: 'Gestionnaire de tâches',
-        description: 'Application web moderne pour la gestion de tâches avec fonctionnalités de collaboration en temps réel.',
-        technologies: ['React', 'Node.js', 'Tailwind CSS'],
-        demoLink: '#',
-        repoLink: '#',
+        title: 'Nextwave',
+        description: 'Un réseau social orienté open source ou vous pouvez partager vos projets et rechercher des contributeurs',
+        technologies: ['React', 'Supabase', 'Tailwind CSS'],
+        demoLink: 'nextwave-roan.vercel.app',
+        repoLink: 'https://github.com/Inconnu8557/nextwave',
         image: img1,
         category: 'Application Web'
     },
