@@ -22,10 +22,10 @@ const projects = [
     },
     {
         id: 2,
-        title: 'Plateforme E-commerce',
-        description: 'Solution e-commerce complète avec panier, paiement et gestion des commandes.',
-        technologies: ['Next.js', 'TypeScript', 'Prisma'],
-        demoLink: '#',
+        title: 'Landing page 3D',
+        description: 'Une page d'accueil complète, avec un robot spline.',
+        technologies: ['HTML', 'CSS'],
+        demoLink: 'https://landing-page-3d-six.vercel.app',
         repoLink: '#',
         image: img2,
         category: 'E-commerce'
