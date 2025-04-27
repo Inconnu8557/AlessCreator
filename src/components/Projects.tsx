@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Title from "./Title";
-import img1 from '../assets/projects/1.png';
+import img1 from '../assets/projects/Nextwave.jpeg';
 import img2 from '../assets/projects/2.png';
-import img3 from '../assets/projects/3.png';
+import img3 from '../assets/projects/alesscreator.png';
 import img4 from '../assets/projects/4.png';
 import img5 from '../assets/projects/5.png';
 import img6 from '../assets/projects/6.png';
@@ -15,7 +15,7 @@ const projects = [
         title: 'Nextwave',
         description: 'Un réseau social orienté open source ou vous pouvez partager vos projets et rechercher des contributeurs',
         technologies: ['React', 'Supabase', 'Tailwind CSS'],
-        demoLink: 'nextwave-roan.vercel.app',
+        demoLink: 'https://nextwave-roan.vercel.app/',
         repoLink: 'https://github.com/Inconnu8557/nextwave',
         image: img1,
         category: 'Application Web'
@@ -32,11 +32,11 @@ const projects = [
     },
     {
         id: 3,
-        title: 'Portfolio interactif',
+        title: 'Portfolio',
         description: 'Portfolio personnel avec animations fluides et design responsive.',
         technologies: ['React', 'Framer Motion', 'Tailwind CSS'],
-        demoLink: '#',
-        repoLink: '#',
+        demoLink: 'https://alesscreator.vercel.app/',
+        repoLink: 'https://github.com/Inconnu8557/AlessCreator',
         image: img3,
         category: 'Portfolio'
     },
