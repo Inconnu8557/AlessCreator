@@ -24,7 +24,7 @@ const projects = [
         id: 2,
         title: 'Landing page 3D',
         description: 'Une page d'accueil complète, avec un robot spline.',
-        technologies: ['HTML', 'CSS'],
+        technologies: ['HTML', 'CSS', 'Spline'],
         demoLink: '#',
         repoLink: '#',
         image: img2,
