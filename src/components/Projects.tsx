@@ -25,7 +25,7 @@ const projects = [
         title: 'Landing page 3D',
         description: 'Une page d'accueil complète, avec un robot spline.',
         technologies: ['HTML', 'CSS'],
-        demoLink: 'https://landing-page-3d-six.vercel.app',
+        demoLink: '#',
         repoLink: '#',
         image: img2,
         category: 'E-commerce'
