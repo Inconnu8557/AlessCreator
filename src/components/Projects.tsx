@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import Title from "./Title";
 import img1 from '../assets/projects/Nextwave.jpeg';
-import img2 from '../assets/projects/2.png';
+import img2 from '../assets/projects/landing.jpeg';
 import img3 from '../assets/projects/alesscreator.png';
-import img4 from '../assets/projects/4.png';
-import img5 from '../assets/projects/5.png';
-import img6 from '../assets/projects/6.png';
+import img4 from '../assets/projects/Logocraft.png';
+//import img5 from '../assets/projects/5.png';
+//import img6 from '../assets/projects/6.png';
 import { Github, ExternalLink, Tag, Folder } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -23,12 +23,12 @@ const projects = [
     {
         id: 2,
         title: 'Landing page 3D',
-        description: 'Une page d'accueil complète, avec un robot spline.',
+        description: "Une page d'accueil complète, avec un robot créer avec spline.",
         technologies: ['HTML', 'CSS', 'Spline'],
-        demoLink: '#',
-        repoLink: '#',
+        demoLink: 'https://landing-page-3d-six.vercel.app/',
+        repoLink: 'https://github.com/Inconnu8557/landing-page-3d',
         image: img2,
-        category: 'E-commerce'
+        category: 'Landing Page'
     },
     {
         id: 3,
@@ -42,15 +42,15 @@ const projects = [
     },
     {
         id: 4,
-        title: 'Application de Chat',
-        description: 'Application de chat en temps réel avec support des messages multimédia.',
-        technologies: ['React', 'Socket.io', 'Express.js'],
-        demoLink: '#',
-        repoLink: '#',
+        title: 'Logocraft',
+        description: "Application de création de logo personnalisés avec la bibliothèques d'icônes Lucide",
+        technologies: ['Nextjs', 'Lucide', 'Tailwind CSS'],
+        demoLink: 'https://creation-logo-two.vercel.app/',
+        repoLink: 'https://github.com/Inconnu8557/LogoCraft',
         image: img4,
         category: 'Application Web'
     },
-    {
+    /*{
         id: 5,
         title: 'Système de Réservation',
         description: 'Plateforme de réservation de salles avec calendrier interactif.',
@@ -69,7 +69,7 @@ const projects = [
         repoLink: '#',
         image: img6,
         category: 'API'
-    },
+    },*/
 ];
 
 const allTechnologies = Array.from(
