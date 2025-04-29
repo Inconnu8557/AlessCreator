@@ -1,23 +1,17 @@
 import { motion } from "framer-motion";
-import { Container, Github, Linkedin, Mail } from "lucide-react";
+import { Container, Github, Mail } from "lucide-react";
 
 const socialLinks = [
     {
         id: 1,
         icon: <Github className="w-5 h-5" />,
-        href: "https://github.com/yourusername",
+        href: "https://github.com/Inconnu8557",
         label: "GitHub"
-    },
-    {
-        id: 2,
-        icon: <Linkedin className="w-5 h-5" />,
-        href: "https://linkedin.com/in/yourusername",
-        label: "LinkedIn"
     },
     {
         id: 3,
         icon: <Mail className="w-5 h-5" />,
-        href: "mailto:votre@email.com",
+        href: "mailto:mlalessandro@icloud.com",
         label: "Email"
     }
 ];
@@ -38,7 +32,7 @@ const Footer = () => {
                     >
                         <Container className="w-12 h-12 mb-4 text-accent" />
                         <h2 className="mb-2 text-2xl font-bold">
-                            LUC<span className="text-accent">DEV</span>
+                            Aless<span className="text-accent">Creator</span>
                         </h2>
                         <p className="max-w-md text-center text-base-content/70">
                             Création d'applications web modernes et performantes.
@@ -76,7 +70,7 @@ const Footer = () => {
                         viewport={{ once: true }}
                         className="text-sm text-center text-base-content/50"
                     >
-                        <p>© {new Date().getFullYear()} LUCDEV. Tous droits réservés.</p>
+                        <p>© {new Date().getFullYear()} AlessCreator. Tous droits réservés.</p>
                         <p className="mt-2">
                             Conçu et développé avec{" "}
                             <span className="text-red-500">♥</span> en France

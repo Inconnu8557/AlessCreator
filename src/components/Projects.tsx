@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Title from "./Title";
 import img1 from '../assets/projects/Nextwave.jpeg';
 import img2 from '../assets/projects/landing.jpeg';
@@ -6,7 +6,7 @@ import img3 from '../assets/projects/alesscreator.png';
 import img4 from '../assets/projects/Logocraft.png';
 //import img5 from '../assets/projects/5.png';
 //import img6 from '../assets/projects/6.png';
-import { Github, ExternalLink, Tag, Folder } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
@@ -72,37 +72,8 @@ const projects = [
     },*/
 ];
 
-const allTechnologies = Array.from(
-    new Set(projects.flatMap(project => project.technologies))
-).sort();
-
-const allCategories = Array.from(
-    new Set(projects.map(project => project.category))
-).sort();
-
 const Projects = () => {
-    const [selectedTech, setSelectedTech] = useState<string>('');
-    const [selectedCategory, setSelectedCategory] = useState<string>('');
-    const [filteredProjects, setFilteredProjects] = useState(projects);
     const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-
-    useEffect(() => {
-        let filtered = [...projects];
-        
-        if (selectedTech) {
-            filtered = filtered.filter(project => 
-                project.technologies.includes(selectedTech)
-            );
-        }
-        
-        if (selectedCategory) {
-            filtered = filtered.filter(project => 
-                project.category === selectedCategory
-            );
-        }
-        
-        setFilteredProjects(filtered);
-    }, [selectedTech, selectedCategory]);
 
     return (
         <div id="Projects" className="px-6 py-20 md:px-10">
@@ -117,70 +88,6 @@ const Projects = () => {
                     <Title title="Mes Projets" />
                 </motion.div>
 
-                <div className="mb-12 space-y-6">
-                    <motion.div 
-                        className="flex flex-wrap justify-center gap-3"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        viewport={{ once: true }}
-                    >
-                        <div className="flex items-center gap-2 p-2 rounded-lg bg-base-200">
-                            <Folder className="w-4 h-4 text-accent" />
-                            <motion.button
-                                className={`px-3 py-1 rounded-md transition-all ${!selectedCategory ? 'bg-accent text-white' : 'hover:bg-base-300'}`}
-                                onClick={() => setSelectedCategory('')}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                Tous
-                            </motion.button>
-                            {allCategories.map(category => (
-                                <motion.button
-                                    key={category}
-                                    className={`px-3 py-1 rounded-md transition-all ${selectedCategory === category ? 'bg-accent text-white' : 'hover:bg-base-300'}`}
-                                    onClick={() => setSelectedCategory(category)}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    {category}
-                                </motion.button>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                    <motion.div 
-                        className="flex flex-wrap justify-center gap-3"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        viewport={{ once: true }}
-                    >
-                        <div className="flex items-center gap-2 p-2 rounded-lg bg-base-200">
-                            <Tag className="w-4 h-4 text-accent" />
-                            <motion.button
-                                className={`px-3 py-1 rounded-md transition-all ${!selectedTech ? 'bg-accent text-white' : 'hover:bg-base-300'}`}
-                                onClick={() => setSelectedTech('')}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                Toutes les technologies
-                            </motion.button>
-                            {allTechnologies.map(tech => (
-                                <motion.button
-                                    key={tech}
-                                    className={`px-3 py-1 rounded-md transition-all ${selectedTech === tech ? 'bg-accent text-white' : 'hover:bg-base-300'}`}
-                                    onClick={() => setSelectedTech(tech)}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    {tech}
-                                </motion.button>
-                            ))}
-                        </div>
-                    </motion.div>
-                </div>
-
                 <AnimatePresence mode="wait">
                     <motion.div 
                         className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
@@ -189,7 +96,7 @@ const Projects = () => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        {filteredProjects.map((project, index) => (
+                        {projects.map((project, index) => (
                             <motion.div
                                 key={project.id}
                                 className="relative overflow-hidden shadow-lg group bg-base-200 rounded-xl"

@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Github, Briefcase, Code } from "lucide-react";
+import { Mail, Github } from "lucide-react";
 import Logo from '../assets/Logo.png';
 import { useState, useEffect } from "react";
 
@@ -11,20 +11,6 @@ const socialLinks = [
         label: "GitHub",
         color: "hover:bg-[#333333]"
     },
-    {
-        id: 3,
-        icon: <Briefcase className="w-5 h-5" />,
-        href: "#projects",
-        label: "Projets",
-        color: "hover:bg-accent"
-    },
-    {
-        id: 4,
-        icon: <Code className="w-5 h-5" />,
-        href: "#skills",
-        label: "Compétences",
-        color: "hover:bg-accent"
-    }
 ];
 
 const Home = () => {
